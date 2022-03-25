@@ -1,0 +1,59 @@
+
+    <%- include("partials/header.html") %>
+    <div class="container-fluid">
+        <div class="container">
+            <main>
+                <img src="https://marcus.vin/wp-content/uploads/2021/01/thumb-pauta-1024x538.png" width="100%" alt="blog">
+            </main>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+          
+    <section class="artigos">
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="row">
+                    <% posts.map((e, key)=>{ %>
+                        <div class="col-6">
+                            <a href="<%= e.slug %>">
+                                <div class="artigoLarge">
+                                    <img src="<%= e.image %>" width="100%" alt="">
+                                    <div>
+                                        <p class="categoria"><%= e.categoria %></p>
+                                        <h4><%= e.title %></h4>
+                                        <p class="resumoNoticia"><%- e.article %></p>
+                                    </div>    
+                                </div>
+                            </a>
+                        </div>                    
+                    <% }) %>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="sidebar">
+                    <h2>As Mais Lidas</h2>
+
+                    <% postsTop.map((el)=>{ %>
+
+                        <div class="artigoResumo">
+                            <div class="row d-flex align-items-center">
+                                <div class="col-12 col-sm-12 col-md-12 col-xl-5">
+                                    <img src="https://static.vecteezy.com/ti/vetor-gratis/p1/1308704-fofo-homem-de-negocios-para-adesivo-e-foto-de-perfil-gr%C3%A1tis-vetor.jpg" width="100%" alt="">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-xl-7 resumoTitle">
+                                    <h4 class="mt-0 mt-md-2"><%= el.titulo %></h4>
+                                    <small><%= el.views %> views</small>
+                                    <%- el.conteudo %>
+                                    <a href="<%= el.slug %>">saiba mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </div>
+    </section>  
+</div>
+</div>
+<%- include("partials/footer.html") %>
